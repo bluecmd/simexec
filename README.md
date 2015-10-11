@@ -1,4 +1,4 @@
-== simexec
+# simexec
 
 Used to seamlessly move executions into a simulator.
 
