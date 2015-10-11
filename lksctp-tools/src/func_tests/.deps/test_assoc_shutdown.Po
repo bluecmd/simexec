@@ -1,0 +1,232 @@
+test_assoc_shutdown.o: test_assoc_shutdown.c \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdc-predef.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdio.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/features.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/cdefs.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/wordsize.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/gnu/stubs.h \
+ /srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stddef.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/typesizes.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/libio.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/_G_config.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/wchar.h \
+ /srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stdarg.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdio_lim.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sys_errlist.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdio.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/unistd.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/posix_opt.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/environments.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/confname.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/getopt.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdlib.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/waitflags.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/waitstatus.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/endian.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/endian.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/byteswap.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/byteswap-16.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/time.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/select.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/select.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sigset.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/time.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/sysmacros.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/pthreadtypes.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/alloca.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdlib-bsearch.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdlib-float.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/string.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/xlocale.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/string.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/string2.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/socket.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/uio.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/uio.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/socket.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/socket_type.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sockaddr.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/socket.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/socket.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/sockios.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/sockios.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/netinet/in.h \
+ /srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stdint.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdint.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/wchar.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/in.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/errno.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/errno-base.h \
+ ../../src/include/netinet/sctp.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/int-ll64.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/bitsperlong.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/bitsperlong.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/posix_types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/stddef.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/posix_types.h \
+ /srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/posix_types.h \
+ ../../src/testlib/sctputil.h
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdc-predef.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdio.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/features.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/cdefs.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/wordsize.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/gnu/stubs.h:
+
+/srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stddef.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/typesizes.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/libio.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/_G_config.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/wchar.h:
+
+/srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stdarg.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdio_lim.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sys_errlist.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdio.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/unistd.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/posix_opt.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/environments.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/confname.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/getopt.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdlib.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/waitflags.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/waitstatus.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/endian.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/endian.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/byteswap.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/byteswap-16.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/time.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/select.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/select.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sigset.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/time.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/sysmacros.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/pthreadtypes.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/alloca.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdlib-bsearch.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/stdlib-float.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/string.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/xlocale.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/string.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/string2.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/socket.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/uio.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/uio.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/socket.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/socket_type.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/sockaddr.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/socket.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/socket.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/sockios.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/sockios.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/netinet/in.h:
+
+/srv/compilers/openrisc-devel/lib/gcc/or1k-linux-gnu/5.2.0/include/stdint.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/stdint.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/wchar.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/in.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/sys/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/bits/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/errno.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/errno-base.h:
+
+../../src/include/netinet/sctp.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/int-ll64.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/bitsperlong.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/bitsperlong.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/posix_types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/linux/stddef.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm/posix_types.h:
+
+/srv/compilers/openrisc-devel/or1k-linux-gnu/sys-root/usr/include/asm-generic/posix_types.h:
+
+../../src/testlib/sctputil.h:
