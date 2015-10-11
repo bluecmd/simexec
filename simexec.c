@@ -13,26 +13,29 @@
 
 
 #define STREAM_STDIN 1
-#define STREAM_STDOUT 1
-#define STREAM_STDERR 2
 
 
 static int simexec_connect(const char* addr, int port) {
   struct addrinfo hints;
   struct addrinfo *result, *rp;
+  struct sctp_event_subscribe events;
   int sock;
   char portstr[7];
   snprintf(portstr, 7, "%d", port);
 
   memset(&hints, 0, sizeof(hints));
+  memset(&events, 0, sizeof(events));
 
-  hints.ai_family = AF_INET6;
+  hints.ai_family = AF_UNSPEC;
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = AI_PASSIVE | AI_NUMERICSERV;
   hints.ai_protocol = IPPROTO_SCTP;
   hints.ai_canonname = NULL;
   hints.ai_addr = NULL;
   hints.ai_next = NULL;
+
+  /* Enable receipt of SCTP Snd/Rcv Data via sctp_recvmsg */
+  events.sctp_data_io_event = 1;
 
   {
     int s;
@@ -54,12 +57,17 @@ static int simexec_connect(const char* addr, int port) {
     close(sock);
   }
 
-   if (rp == NULL) {
-     fprintf(stderr, "Could not bind\n");
-     return -1;
-   }
+  if (rp == NULL) {
+    fprintf(stderr, "Could not bind\n");
+    return -1;
+  }
 
-  freeaddrinfo(result);           /* No longer needed */
+  if (setsockopt(sock, SOL_SCTP, SCTP_EVENTS, &events, sizeof(events)) == -1) {
+    perror("setsockopt");
+    return -1;
+  }
+
+  freeaddrinfo(result);
   return sock;
 }
 
@@ -80,7 +88,7 @@ void redirect_stdin(int sock) {
 int main(int argc, char** argv, char** envp) {
   int sock;
 
-  if ((sock = simexec_connect("::1", 7012)) == -1) {
+  if ((sock = simexec_connect(getenv("SIMEXEC"), 7012)) == -1) {
     return 1;
   }
 
@@ -126,14 +134,11 @@ int main(int argc, char** argv, char** envp) {
       return 1;
     }
 
-    printf("stream: %d\n",sinfo.sinfo_stream);
     if (sinfo.sinfo_stream == 0) {
       /* exit code */
       return ntohl(*(uint32_t*)buf);
-    } else if (sinfo.sinfo_stream == STREAM_STDOUT) {
-      fprintf(stdout, "%.*s\n", size, buf);
-    } else if (sinfo.sinfo_stream == STREAM_STDERR) {
-      fprintf(stderr, "%.*s\n", size, buf);
+    } else {
+      write(sinfo.sinfo_stream, buf, size);
     }
   }
 

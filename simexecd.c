@@ -85,19 +85,16 @@ int handle_peer(int sock) {
 
   if ((pid = fork()) == 0) {
     int out = sock;
-    int err = dup(sock);
+    /* TODO(bluecmd): Stderr should be on an other stream, but I haven't
+     * figured out how to do that nicely yet. */
 
     memset(&sinfo, 0, sizeof(sinfo));
-
-    //getsockopt(out, IPPROTO_SCTP, SCTP_DEFAULT_SEND_PARAM, &sinfo, sizeof(sinfo));
     sinfo.sinfo_stream = 1;
     setsockopt(out, IPPROTO_SCTP, SCTP_DEFAULT_SEND_PARAM, &sinfo, sizeof(sinfo));
-    sinfo.sinfo_stream = 2;
-    setsockopt(err, IPPROTO_SCTP, SCTP_DEFAULT_SEND_PARAM, &sinfo, sizeof(sinfo));
 
     dup2(out, 0);
     dup2(out, 1);
-    dup2(err, 2);
+    dup2(out, 2);
     chdir(cwd);
     execve(argv[0], argv, envp);
   } else {
