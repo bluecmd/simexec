@@ -10,8 +10,10 @@
 #include <errno.h>
 #include <netdb.h>
 #include <linux/limits.h>
+#include <pthread.h>
 
 
+#define DAEMON_HOST "192.168.1.2"
 #define STREAM_STDIN 1
 
 
@@ -71,24 +73,26 @@ static int simexec_connect(const char* addr, int port) {
   return sock;
 }
 
-void redirect_stdin(int sock) {
+void * redirect_stdin(void *sock_ptr) {
+  int sock = *(int*)sock_ptr;
   while (1) {
     char buf[1024];
     int bytes = read(0, buf, sizeof(buf));
     if (bytes <= 0) {
-      return;
+      break;
     }
     if (sctp_sendmsg(sock, buf, bytes, NULL, 0, 0, 0,
           STREAM_STDIN, 0, 0) == -1) {
-      return;
+      break;
     }
   }
+  return NULL;
 }
 
 int main(int argc, char** argv, char** envp) {
   int sock;
 
-  if ((sock = simexec_connect(getenv("SIMEXEC"), 7012)) == -1) {
+  if ((sock = simexec_connect(DAEMON_HOST, 7012)) == -1) {
     return 1;
   }
 
@@ -115,9 +119,10 @@ int main(int argc, char** argv, char** envp) {
     }
 
     sctp_sendmsg(sock, &null, 1, NULL, 0, 0, 0, 0, 0, 0);
-    if (fork() == 0) {
-      redirect_stdin(sock);
-      exit(0);
+
+    {
+      pthread_t redir_thread;
+      pthread_create(&redir_thread, NULL, redirect_stdin, &sock);
     }
   }
 
@@ -127,7 +132,7 @@ int main(int argc, char** argv, char** envp) {
     struct sctp_sndrcvinfo sinfo;
     char buf[1024];
 
-    size = sctp_recvmsg(sock, &buf, sizeof(buf), NULL, 0, &sinfo, &flags);
+    size = sctp_recvmsg(sock, buf, sizeof(buf), NULL, 0, &sinfo, &flags);
     /* Execution ended */
     if (size <= 0) {
       perror("recvmsg");
@@ -135,7 +140,8 @@ int main(int argc, char** argv, char** envp) {
     }
 
     if (sinfo.sinfo_stream == 0) {
-      /* exit code */
+      /* ack exit code */
+      sctp_sendmsg(sock, buf, size, NULL, 0, 0, 0, 0, 0, 0);
       return ntohl(*(uint32_t*)buf);
     } else {
       write(sinfo.sinfo_stream, buf, size);

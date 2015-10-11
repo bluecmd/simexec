@@ -1,3 +1,4 @@
+#define PAGE_SIZE (1<<13)
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -9,7 +10,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <linux/limits.h>
-#include <sys/user.h>
+#include <sys/wait.h>
 #include <linux/binfmts.h>
 
 static int setup() {
@@ -32,7 +33,7 @@ static int setup() {
     return -1;
   }
 
-  if (listen(sock, 1) == -1) {
+  if (listen(sock, 5) == -1) {
     perror("listen");
     return -1;
   }
@@ -40,7 +41,7 @@ static int setup() {
   return sock;
 }
 
-int receive_string(int sock, char** ptr) {
+static int receive_string(int sock, char** ptr) {
   struct sctp_sndrcvinfo sinfo;
   int flags = 0;
   int recved = 0;
@@ -64,7 +65,7 @@ int receive_string(int sock, char** ptr) {
   return *ptr != NULL;
 }
 
-int handle_peer(int sock) {
+static int handle_peer(int sock) {
   struct sctp_sndrcvinfo sinfo;
   int flags = 0;
   int recved = 0;
@@ -99,9 +100,15 @@ int handle_peer(int sock) {
     execve(argv[0], argv, envp);
   } else {
     uint32_t status = 0;
+    int ret;
+    printf("[%d] %s\n", pid, argv[0]);
     waitpid(pid, &status, 0);
+    printf("[%d] exited: %d\n", pid, WEXITSTATUS(status));
     status = htonl(WEXITSTATUS(status));
     sctp_sendmsg(sock, &status, sizeof(status), NULL, 0, 0, 0, 0, 0, 0);
+    ret = sctp_recvmsg(sock, &status, sizeof(status), NULL, 0, NULL, NULL);
+    printf("[%d] acked exit (%d), ret: %d\n", pid, status, ret);
+    shutdown(sock, SHUT_RDWR);
   }
 
   return 0;
@@ -114,10 +121,14 @@ int main() {
     return 1;
   }
 
+  /* we don't care about the return codes of our forks */
+  signal(SIGCHLD, SIG_IGN);
+
   while(1)
   {
     int peer = accept(sock, NULL, NULL);
     if (fork() == 0) {
+      signal(SIGCHLD, SIG_DFL);
       return handle_peer(peer);
     }
     close(peer);
